@@ -2,7 +2,19 @@ const productsData = [
     { id: 1, name: "Pen", price: 10, image: "./favicons/pen.ico" },
     { id: 2, name: "Pencil", price: 5, image: "./favicons/pencil.ico" },
     { id: 3, name: "Notebook", price: 25, image: "./favicons/notebook.ico" },
-    { id: 3, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
+    { id: 4, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
+    { id: 5, name: "Crayon (Set of 15)", price: 45, image: "./favicons/crayon.ico" },
+    { id: 6, name: "Geometry Box", price: 110, image: "./favicons/geometry.ico" },
+    { id: 7, name: "Highlighter", price: 30, image: "./favicons/highlighter.ico" },
+    { id: 8, name: "Marker", price: 12, image: "./favicons/marker.ico" },
+    { id: 9, name: "Sticky Notes (60)", price: 60, image: "./favicons/sticky.ico" },
+    { id: 10, name: "Stapler", price: 50, image: "./favicons/stapler.ico" },
+    { id: 11, name: "Paper Clips (10)", price: 5, image: "./favicons/clips.ico" },
+    { id: 12, name: "Calculator", price: 250, image: "./favicons/calculator.ico" },
+    { id: 13, name: "Paint Kit", price: 95, image: "./favicons/paint.ico" },
+    { id: 14, name: "Paper Cutter", price: 35, image: "./favicons/razor.ico" },
+    { id: 15, name: "Tape", price: 10, image: "./favicons/tape.ico" },
+    { id: 16, name: "Sharpener", price: 5, image: "./favicons/sharpeners.ico" }
 ];
   
 // Initialize cart items from cookies or an empty array
