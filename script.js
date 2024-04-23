@@ -1,7 +1,7 @@
 const productsData = [
-    { id: 1, name: "Pen", price: 1.50, image: "./favicons/pen.ico" },
-    { id: 2, name: "Pencil", price: 3.50, image: "./favicons/pencil.ico" },
-    { id: 3, name: "Notebook", price: 2.00, image: "./favicons/notebook.ico" }
+    { id: 1, name: "Pen", price: 10, image: "./favicons/pen.ico" },
+    { id: 2, name: "Pencil", price: 5, image: "./favicons/pencil.ico" },
+    { id: 3, name: "Notebook", price: 25, image: "./favicons/notebook.ico" }
 ];
   
 // Initialize cart items from cookies or an empty array
@@ -17,7 +17,7 @@ function displayProducts() {
         productCard.innerHTML = `
             <center><img src="${product.image}"<center><br>
             <h3>${product.name}</h3>
-            <p>$${product.price.toFixed(2)}</p>
+            <p>Rs. ${product.price.toFixed(2)}</p>
             <button class="addcart" onclick="addToCart(${product.id})">Add to Cart</button>
         `;
         productsContainer.appendChild(productCard);
