@@ -1,7 +1,8 @@
 const productsData = [
     { id: 1, name: "Pen", price: 10, image: "./favicons/pen.ico" },
     { id: 2, name: "Pencil", price: 5, image: "./favicons/pencil.ico" },
-    { id: 3, name: "Notebook", price: 25, image: "./favicons/notebook.ico" }
+    { id: 3, name: "Notebook", price: 25, image: "./favicons/notebook.ico" },
+    { id: 3, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
 ];
   
 // Initialize cart items from cookies or an empty array
