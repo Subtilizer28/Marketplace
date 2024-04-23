@@ -28,22 +28,27 @@ function displayProducts() {
 function addToCart(productId) {
     const productToAdd = productsData.find(product => product.id === productId);
     if (productToAdd) {
-        cartItems.push(productToAdd);
+        const existingItem = cartItems.find(item => item.id === productId);
+        if (existingItem) {
+            existingItem.quantity++; // Increase quantity if item already exists
+        } else {
+            cartItems.push({ ...productToAdd, quantity: 1 }); // Add new item with quantity 1
+        }
         updateCart();
     }
 }
   
-  // Function to update cart display
+// Function to update cart display
 function updateCart() {
     const cartItemsList = document.getElementById("cart-items");
     cartItemsList.innerHTML = "";
     let totalPrice = 0;
-    
+  
     cartItems.forEach(item => {
         const li = document.createElement("li");
-        li.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+        li.textContent = `${item.name} - Quantity: ${item.quantity} - Rs. ${(item.price * item.quantity).toFixed(2)}`;
         cartItemsList.appendChild(li);
-        totalPrice += item.price;
+        totalPrice += item.price * item.quantity;
     });
   
     document.getElementById("cart-total").textContent = totalPrice.toFixed(2);
@@ -54,14 +59,14 @@ function updateCart() {
   
 // Function to clear cart and cookies
 function clearCart() {
-    cartItems = [];
-    updateCart();
-}
-  
-// Function to handle checkout (you can customize this)
-function checkout() {
-    // Add your checkout logic here (e.g., redirect to checkout page)
-    alert("Redirecting to checkout page...");
+    const confirmClear = confirm("Are you sure you want to clear the cart?");
+    if (confirmClear) {
+        cartItems = []; // Clear cart items
+        updateCart(); // Update cart display
+    } else {
+        // provide feedback to the user
+       alert("Cart clear cancelled.");
+    }
 }
   
 // Utility functions for managing cookies
