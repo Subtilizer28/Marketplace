@@ -6,7 +6,7 @@ const productsData = [
   
 // Initialize cart items from cookies or an empty array
 let cartItems = JSON.parse(getCookie("cart")) || [];
-  
+
 // Function to display products
 function displayProducts() {
     const productsContainer = document.getElementById("products");
@@ -18,7 +18,7 @@ function displayProducts() {
             <center><img src="${product.image}"<center><br>
             <h3>${product.name}</h3>
             <p>Rs. ${product.price.toFixed(2)}</p>
-            <button class="addcart" onclick="addToCart(${product.id})">Add to Cart</button>
+            <button class="btn" onclick="addToCart(${product.id})">Add to Cart</button>
         `;
         productsContainer.appendChild(productCard);
     });
@@ -45,8 +45,8 @@ function updateCart() {
     let totalPrice = 0;
   
     cartItems.forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = `${item.name} - Quantity: ${item.quantity} - Rs. ${(item.price * item.quantity).toFixed(2)}`;
+        const li = document.createElement("div");
+        li.innerHTML = `<p class="items">${item.name} - Quantity: ${item.quantity} - Rs. ${(item.price * item.quantity).toFixed(2)}</p>`;
         cartItemsList.appendChild(li);
         totalPrice += item.price * item.quantity;
     });
@@ -79,7 +79,7 @@ function getCookie(name) {
     const cookie = document.cookie.split("; ").find(cookie => cookie.startsWith(name + "="));
     return cookie ? decodeURIComponent(cookie.split("=")[1]) : null;
 }
-  
+
 // Initialize the product listing and cart on page load
 window.onload = () => {
     displayProducts();

@@ -12,12 +12,12 @@ body {
 
 #products {
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     margin-top: 30px;
 }
 
-.addcart {
+.btn {
     background-color: rgba(255, 255, 255, 0.2);
     height: 30px;
     border-radius: 40px;
@@ -26,6 +26,35 @@ body {
     border: 0px;
 }
 
+.clr {
+    background-color: rgba(255, 255, 255, 0.2);
+    height: 60px;
+    width: 120px;
+    border-radius: 40px;
+    color: black;
+    transition: transform 250ms;
+    border: 0px;
+}
+
 .addcart:hover {
     transform: scale(1.1);
+}
+
+#cart-items {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    margin-top: 30px;
+}
+
+.items {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    font-size: large;
+    background-color: rgba(255, 255, 255, 0.3);
+    height: 40px;
+    width: 300px;
+    border: 0px;
+    border-radius: 30px;
 }
