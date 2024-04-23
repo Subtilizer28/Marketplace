@@ -1,0 +1,31 @@
+body {
+    background: rgb(108,124,255);
+    background: radial-gradient(circle, rgba(108,124,255,1) 0%, rgba(181,215,255,1) 100%);
+}
+
+.title {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+    font-weight: 900;
+    margin-top: 20px;
+}
+
+#products {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    margin-top: 30px;
+}
+
+.addcart {
+    background-color: rgba(255, 255, 255, 0.2);
+    height: 30px;
+    border-radius: 40px;
+    color: black;
+    transition: transform 250ms;
+    border: 0px;
+}
+
+.addcart:hover {
+    transform: scale(1.1);
+}
