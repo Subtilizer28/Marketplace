@@ -29,8 +29,8 @@ function displayProducts() {
         productCard.classList.add("product-card");
         productCard.innerHTML = `
             <center><img src="${product.image}"<center><br>
-            <h3>${product.name}</h3>
-            <p>Rs. ${product.price.toFixed(2)}</p>
+            <h2>${product.name}</h2>
+            <p class="price">Rs. ${product.price.toFixed(2)}</p>
             <button class="btn" onclick="addToCart(${product.id})">Add to Cart</button>
         `;
         productsContainer.appendChild(productCard);
@@ -76,9 +76,10 @@ function clearCart() {
     if (confirmClear) {
         cartItems = []; // Clear cart items
         updateCart(); // Update cart display
+        alert("Cart Cleared")
     } else {
         // provide feedback to the user
-       alert("Cart clear cancelled.");
+        alert("Cart clear cancelled.");
     }
 }
   
