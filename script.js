@@ -14,7 +14,7 @@ const productsData = [
     { id: 13, name: "Paint Kit", price: 95, image: "./favicons/paint.ico" },
     { id: 14, name: "Paper Cutter", price: 35, image: "./favicons/razor.ico" },
     { id: 15, name: "Tape", price: 10, image: "./favicons/tape.ico" },
-    { id: 16, name: "Sharpener", price: 5, image: "./favicons/sharpeners.ico" }
+    { id: 16, name: "Sharpener", price: 5, image: "./favicons/sharpeners.ico" },
 ];
   
 // Initialize cart items from cookies or an empty array

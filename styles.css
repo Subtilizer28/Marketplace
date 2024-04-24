@@ -30,6 +30,10 @@ body {
     border: 0px;
 }
 
+.btn:hover {
+    transform: scale(1.1);
+}
+
 .clr {
     background-color: rgba(255, 255, 255, 0.2);
     height: 60px;
