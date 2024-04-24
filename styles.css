@@ -10,11 +10,71 @@ body {
     margin-top: 20px;
 }
 
+#container {
+    display: grid;
+    grid-template-columns: 1fr 0.4fr;
+    grid-auto-flow: row;
+}
+
 #products {
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     margin-top: 30px;
+}
+
+#cart {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 40px;
+}
+
+#cart-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    margin-top: 30px;
+}
+
+.stat {
+    background-color: rgba(255, 255, 255, 0.2);
+    height: 60px;
+    width: 120px;
+    border-radius: 40px;
+    color: black;
+    transition: transform 250ms;
+    border: 0px;
+}
+
+.stat:hover {
+    transform: scale(1.1);
+}
+
+.groc {
+    background-color: rgba(255, 255, 255, 0.2);
+    height: 60px;
+    width: 120px;
+    border-radius: 40px;
+    color: black;
+    transition: transform 250ms;
+    border: 0px;
+}
+
+.groc:hover {
+    transform: scale(1.1);
+}
+
+.elec {
+    background-color: rgba(255, 255, 255, 0.2);
+    height: 60px;
+    width: 120px;
+    border-radius: 40px;
+    color: black;
+    transition: transform 250ms;
+    border: 0px;
+}
+
+.elec:hover {
+    transform: scale(1.1);
 }
 
 .product-card {
@@ -30,6 +90,13 @@ body {
     border: 0px;
 }
 
+.buttons {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    margin-top: 20px;
+}
+
 .btn:hover {
     transform: scale(1.1);
 }
@@ -42,31 +109,27 @@ body {
     color: black;
     transition: transform 250ms;
     border: 0px;
+    margin-bottom: 10px;
 }
 
 .addcart:hover {
     transform: scale(1.1);
 }
 
-#cart-items {
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr ;
-    margin-top: 30px;
-}
-
 .price {
     font-weight: bold;
 }
 
-.items {
+.cart-card {
     display: flex;
-    justify-content: center; 
     align-items: center;
-    font-size: large;
-    background-color: rgba(255, 255, 255, 0.3);
+    position: relative;
+    margin-bottom: 10px;
+    right: -6%;
+    padding: 10px;
+    width: 160px;
     height: 40px;
-    width: 330px;
+    background-color: rgba(255, 255, 255, 0.2);
     border: 0px;
     border-radius: 30px;
 }

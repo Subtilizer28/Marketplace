@@ -1,4 +1,4 @@
-const productsData = [
+const stationeryData = [
     { id: 1, name: "Pen", price: 10, image: "./favicons/pen.ico" },
     { id: 2, name: "Pencil", price: 5, image: "./favicons/pencil.ico" },
     { id: 3, name: "Notebook", price: 25, image: "./favicons/notebook.ico" },
@@ -16,30 +16,77 @@ const productsData = [
     { id: 15, name: "Tape", price: 10, image: "./favicons/tape.ico" },
     { id: 16, name: "Sharpener", price: 5, image: "./favicons/sharpeners.ico" },
 ];
+
+const groceryData = [
+    { id: 1, name: "Pen", price: 10, image: "./favicons/pen.ico" },
+    { id: 2, name: "Pencil", price: 5, image: "./favicons/pencil.ico" },
+    { id: 3, name: "Notebook", price: 25, image: "./favicons/notebook.ico" },
+    { id: 4, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
+];
   
+const electronicsData = [
+    { id: 5, name: "Crayon (Set of 15)", price: 45, image: "./favicons/crayon.ico" },
+    { id: 6, name: "Geometry Box", price: 110, image: "./favicons/geometry.ico" },
+    { id: 7, name: "Highlighter", price: 30, image: "./favicons/highlighter.ico" },
+    { id: 8, name: "Marker", price: 12, image: "./favicons/marker.ico" },
+];
 // Initialize cart items from cookies or an empty array
 let cartItems = JSON.parse(getCookie("cart")) || [];
 
 // Function to display products
-function displayProducts() {
-    const productsContainer = document.getElementById("products");
-    productsContainer.innerHTML = "";
-    productsData.forEach(product => {
-        const productCard = document.createElement("div");
-        productCard.classList.add("product-card");
-        productCard.innerHTML = `
-            <center><img src="${product.image}"<center><br>
+function displaystationery() {
+    const stationeryContainer = document.getElementById("products");
+    stationeryContainer.innerHTML = "";
+    stationeryData.forEach(product => {
+        const stationeryCard = document.createElement("div");
+        stationeryCard.classList.add("product-card");
+        stationeryCard.innerHTML = `
+            <center><img src="${product.image}"><center><br>
             <h2>${product.name}</h2>
             <p class="price">Rs. ${product.price.toFixed(2)}</p>
             <button class="btn" onclick="addToCart(${product.id})">Add to Cart</button>
         `;
-        productsContainer.appendChild(productCard);
+        stationeryContainer.appendChild(stationeryCard);
+    });
+}
+
+// Function to display products
+function displaygrocery() {
+    const groceryContainer = document.getElementById("products");
+    groceryContainer.innerHTML = "";
+    groceryData.forEach(product => {
+        const groceryCard = document.createElement("div");
+        groceryCard.classList.add("product-card");
+        groceryCard.innerHTML = `
+            <center><img src="${product.image}"><center><br>
+            <h2>${product.name}</h2>
+            <p class="price">Rs. ${product.price.toFixed(2)}</p>
+            <button class="btn" onclick="addToCart(${product.id})">Add to Cart</button>
+        `;
+        groceryContainer.appendChild(groceryCard);
+    });
+}
+
+// Function to display products
+function displayelectronics() {
+    const electronicsContainer = document.getElementById("products");
+    electronicsContainer.innerHTML = "";
+    electronicsData.forEach(product => {
+        const electronicsCard = document.createElement("div");
+        electronicsCard.classList.add("product-card");
+        electronicsCard.innerHTML = `
+            <center><img src="${product.image}"><center><br>
+            <h2>${product.name}</h2>
+            <p class="price">Rs. ${product.price.toFixed(2)}</p>
+            <button class="btn" onclick="addToCart(${product.id})">Add to Cart</button>
+        `;
+        electronicsContainer.appendChild(electronicsCard);
     });
 }
   
 // Function to add item to cart
 function addToCart(productId) {
-    const productToAdd = productsData.find(product => product.id === productId);
+    const productToAdd = stationeryData.find(product => product.id === productId);
     if (productToAdd) {
         const existingItem = cartItems.find(item => item.id === productId);
         if (existingItem) {
@@ -58,9 +105,14 @@ function updateCart() {
     let totalPrice = 0;
   
     cartItems.forEach(item => {
-        const li = document.createElement("div");
-        li.innerHTML = `<p class="items">${item.name} - Quantity: ${item.quantity} - Rs. ${(item.price * item.quantity).toFixed(2)}</p>`;
-        cartItemsList.appendChild(li);
+        const cartitem = document.createElement("div");
+        cartitem.classList.add("cart-card");
+        cartitem.innerHTML = `
+        <img src="${item.image}" height="32px">
+        ${item.name}<br>
+        Rs. ${(item.price * item.quantity).toFixed(2)}<br>
+        Qty x${item.quantity}</p>`;
+        cartItemsList.appendChild(cartitem);
         totalPrice += item.price * item.quantity;
     });
   
@@ -96,6 +148,5 @@ function getCookie(name) {
 
 // Initialize the product listing and cart on page load
 window.onload = () => {
-    displayProducts();
     updateCart();
 };

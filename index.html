@@ -3,21 +3,29 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Stationary Marketplace</title>
+        <title>Stationery Marketplace</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="./styles.css">
     </head>
     <body>
-        <u><center class="title">Stationary Marketplace</center></u>
-        <div id="products">
+        <u><center class="title">Stationery Marketplace</center></u>
+        <div class="buttons">
+            <button onclick="displaystationery()" class="stat" style="margin-left: -20px;">Stationery</button>
+            <button onclick="displaygrocery()" class="groc" style="margin-left: 20px;">Grocery</button>
+            <button onclick="displayelectronics()" class="elec" style="margin-left: 20px;">Electronics</button>
         </div>
-        <div id="cart">
-            <u><center class="title">Cart</center></u>
-            <div id="cart-items"></div>
-            <center><h1>Total: Rs. <span id="cart-total">0.00</span></h1></center>
-            <center><button class="clr" onclick="clearCart()"><h2>Clear</h2></button></center>
+        <div id="container">
+            <div id="products">
+            </div>
+            <div id="cart">
+                <u><center class="title">Cart</center></u>
+                <div id="cart-items">
+                </div>
+                <center><h1>Total: Rs. <span id="cart-total">0.00</span></h1></center>
+                <center><button class="clr" onclick="clearCart()"><h2>Clear</h2></button></center>
+            </div>
         </div>
-          <script src="script.js"></script>
+        <script src="script.js"></script>
     </body>
 </html>
