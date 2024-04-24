@@ -3,7 +3,7 @@ const stationeryData = [
     { id: 2, name: "Pencil", price: 5, image: "./favicons/pencil.ico" },
     { id: 3, name: "Notebook", price: 25, image: "./favicons/notebook.ico" },
     { id: 4, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
-    { id: 5, name: "Crayon (Set of 15)", price: 45, image: "./favicons/crayon.ico" },
+    { id: 5, name: "Crayon (15)", price: 45, image: "./favicons/crayon.ico" },
     { id: 6, name: "Geometry Box", price: 110, image: "./favicons/geometry.ico" },
     { id: 7, name: "Highlighter", price: 30, image: "./favicons/highlighter.ico" },
     { id: 8, name: "Marker", price: 12, image: "./favicons/marker.ico" },
@@ -43,7 +43,7 @@ function displaystationery() {
         stationeryCard.innerHTML = `
             <center><img src="${product.image}"><center><br>
             <h2>${product.name}</h2>
-            <p class="price">Rs. ${product.price.toFixed(2)}</p>
+            <p class="price">Rs. ${product.price.toFixed(2)}</p><br>
             <button class="btn" onclick="addToCart(${product.id})">Add to Cart</button>
         `;
         stationeryContainer.appendChild(stationeryCard);
@@ -60,7 +60,7 @@ function displaygrocery() {
         groceryCard.innerHTML = `
             <center><img src="${product.image}"><center><br>
             <h2>${product.name}</h2>
-            <p class="price">Rs. ${product.price.toFixed(2)}</p>
+            <p class="price">Rs. ${product.price.toFixed(2)}</p><br>
             <button class="btn" onclick="addToCart(${product.id})">Add to Cart</button>
         `;
         groceryContainer.appendChild(groceryCard);
@@ -77,7 +77,7 @@ function displayelectronics() {
         electronicsCard.innerHTML = `
             <center><img src="${product.image}"><center><br>
             <h2>${product.name}</h2>
-            <p class="price">Rs. ${product.price.toFixed(2)}</p>
+            <p class="price">Rs. ${product.price.toFixed(2)}</p><br>
             <button class="btn" onclick="addToCart(${product.id})">Add to Cart</button>
         `;
         electronicsContainer.appendChild(electronicsCard);
@@ -107,11 +107,12 @@ function updateCart() {
     cartItems.forEach(item => {
         const cartitem = document.createElement("div");
         cartitem.classList.add("cart-card");
-        cartitem.innerHTML = `
-        <img src="${item.image}" height="32px">
-        ${item.name}<br>
+        cartitem.innerHTML = 
+        `<img src="${item.image}" height="40px" style="padding-right: 20px">
+        <p class="price">${item.name}<br>
         Rs. ${(item.price * item.quantity).toFixed(2)}<br>
-        Qty x${item.quantity}</p>`;
+        Qty x${item.quantity}
+        </p>`;
         cartItemsList.appendChild(cartitem);
         totalPrice += item.price * item.quantity;
     });
