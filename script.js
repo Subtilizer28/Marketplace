@@ -18,17 +18,33 @@ const stationeryData = [
 ];
 
 const groceryData = [
-    { id: 1, name: "Pen", price: 10, image: "./favicons/pen.ico" },
-    { id: 2, name: "Pencil", price: 5, image: "./favicons/pencil.ico" },
-    { id: 3, name: "Notebook", price: 25, image: "./favicons/notebook.ico" },
-    { id: 4, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
+    { id: 17, name: "Pen", price: 10, image: "./favicons/pen.ico" },
+    { id: 18, name: "Pencil", price: 5, image: "./favicons/pencil.ico" },
+    { id: 19, name: "Notebook", price: 25, image: "./favicons/notebook.ico" },
+    { id: 20, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
+    { id: 21, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
+    { id: 22, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
+    { id: 23, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
+    { id: 24, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
+    { id: 25, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
+    { id: 26, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
+    { id: 27, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
+    { id: 28, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
 ];
   
 const electronicsData = [
-    { id: 5, name: "Crayon (Set of 15)", price: 45, image: "./favicons/crayon.ico" },
-    { id: 6, name: "Geometry Box", price: 110, image: "./favicons/geometry.ico" },
-    { id: 7, name: "Highlighter", price: 30, image: "./favicons/highlighter.ico" },
-    { id: 8, name: "Marker", price: 12, image: "./favicons/marker.ico" },
+    { id: 29, name: "Crayon (Set of 15)", price: 45, image: "./favicons/crayon.ico" },
+    { id: 30, name: "Geometry Box", price: 110, image: "./favicons/geometry.ico" },
+    { id: 31, name: "Highlighter", price: 30, image: "./favicons/highlighter.ico" },
+    { id: 32, name: "Marker", price: 12, image: "./favicons/marker.ico" },
+    { id: 33, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
+    { id: 34, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
+    { id: 35, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
+    { id: 36, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
+    { id: 37, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
+    { id: 38, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
+    { id: 39, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
+    { id: 40, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
 ];
 // Initialize cart items from cookies or an empty array
 let cartItems = JSON.parse(getCookie("cart")) || [];
@@ -86,7 +102,7 @@ function displayelectronics() {
   
 // Function to add item to cart
 function addToCart(productId) {
-    const productToAdd = stationeryData.find(product => product.id === productId);
+    const productToAdd = stationeryData.find(product => product.id === productId) || groceryData.find(product => product.id === productId) || electronicsData.find(product => product.id === productId);
     if (productToAdd) {
         const existingItem = cartItems.find(item => item.id === productId);
         if (existingItem) {
