@@ -18,33 +18,41 @@ const stationeryData = [
 ];
 
 const groceryData = [
-    { id: 17, name: "Pen", price: 10, image: "./favicons/pen.ico" },
-    { id: 18, name: "Pencil", price: 5, image: "./favicons/pencil.ico" },
-    { id: 19, name: "Notebook", price: 25, image: "./favicons/notebook.ico" },
-    { id: 20, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
-    { id: 21, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
-    { id: 22, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
-    { id: 23, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
-    { id: 24, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
-    { id: 25, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
-    { id: 26, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
-    { id: 27, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
-    { id: 28, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
+    { id: 17, name: "Carrots (1 kg)", price: 60, image: "./favicons/carrots.ico" },
+    { id: 18, name: "Onion (1 kg)", price: 24, image: "./favicons/onion.ico" },
+    { id: 19, name: "Potatoes (1 kg)", price: 16, image: "./favicons/potatoes.ico" },
+    { id: 20, name: "Tomatoes (1 kg)", price: 20, image: "./favicons/tomatoes.ico" },
+    { id: 21, name: "Rice (1 kg)", price: 60, image: "./favicons/rice.ico" },
+    { id: 22, name: "Sugar (1 kg)", price: 35, image: "./favicons/sugar.ico" },
+    { id: 23, name: "Tea Powder (1 kg)", price: 300, image: "./favicons/tea.ico" },
+    { id: 24, name: "Salt (1 kg)", price: 12, image: "./favicons/salt.ico" },
+    { id: 25, name: "Chilli (1 kg)", price: 400, image: "./favicons/chilli.ico" },
+    { id: 26, name: "Beetroot (1 kg)", price: 30, image: "./favicons/beetroot.ico" },
+    { id: 27, name: "Garlic (1 kg)", price: 320, image: "./favicons/garlic.ico" },
+    { id: 28, name: "Beans (1 kg)", price: 60, image: "./favicons/beans.ico" },
+    { id: 29, name: "Wheat (1 kg)", price: 70, image: "./favicons/wheat.ico" },
+    { id: 30, name: "Coconut Oil (1 kg)", price: 150, image: "./favicons/oil.ico" },
+    { id: 31, name: "Apple (1 kg)", price: 60, image: "./favicons/apple.ico" },
+    { id: 32, name: "Orange (1 kg)", price: 60, image: "./favicons/orange.ico" },
 ];
   
 const electronicsData = [
-    { id: 29, name: "Crayon (Set of 15)", price: 45, image: "./favicons/crayon.ico" },
-    { id: 30, name: "Geometry Box", price: 110, image: "./favicons/geometry.ico" },
-    { id: 31, name: "Highlighter", price: 30, image: "./favicons/highlighter.ico" },
-    { id: 32, name: "Marker", price: 12, image: "./favicons/marker.ico" },
-    { id: 33, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
-    { id: 34, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
-    { id: 35, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
-    { id: 36, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
-    { id: 37, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
-    { id: 38, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
-    { id: 39, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
-    { id: 40, name: "Ruler", price: 15, image: "./favicons/ruler.ico" },
+    { id: 33, name: "TV (42in)", price: 25000, image: "./favicons/tv.ico" },
+    { id: 34, name: "Mobile (Oneplus)", price: 38000, image: "./favicons/mobile.ico" },
+    { id: 35, name: "Laptop (Asus)", price: 86000, image: "./favicons/laptop.ico" },
+    { id: 36, name: "Mouse", price: 500, image: "./favicons/mouse.ico" },
+    { id: 37, name: "Keyboard", price: 700, image: "./favicons/keyboard.ico" },
+    { id: 38, name: "USB C Cable", price: 150, image: "./favicons/cable.ico" },
+    { id: 39, name: "Printer", price: 12000, image: "./favicons/printer.ico" },
+    { id: 40, name: "Speaker (22W)", price: 7000, image: "./favicons/speaker.ico" },
+    { id: 41, name: "Earphones", price: 250, image: "./favicons/earphones.ico" },
+    { id: 42, name: "PS5", price: 45000, image: "./favicons/ps5.ico" },
+    { id: 43, name: "DVD Player", price: 3000, image: "./favicons/dvd.ico" },
+    { id: 44, name: "Water Heater", price: 7000, image: "./favicons/heater.ico" },
+    { id: 45, name: "Washing Machine", price: 18000, image: "./favicons/washing.ico" },
+    { id: 46, name: "Driller", price: 2000, image: "./favicons/driller.ico" },
+    { id: 47, name: "Hair Dryer", price: 1500, image: "./favicons/dryer.ico" },
+    { id: 48, name: "Table Fan", price: 1200, image: "./favicons/fan.ico" },
 ];
 // Initialize cart items from cookies or an empty array
 let cartItems = JSON.parse(getCookie("cart")) || [];
@@ -108,6 +116,10 @@ function addToCart(productId) {
         if (existingItem) {
             existingItem.quantity++; // Increase quantity if item already exists
         } else {
+            if (cartItems.length >= 20) {
+                alert("You can add a maximum of 20 items to your cart.");
+                return; // Stop further execution
+            }
             cartItems.push({ ...productToAdd, quantity: 1 }); // Add new item with quantity 1
         }
         updateCart();
